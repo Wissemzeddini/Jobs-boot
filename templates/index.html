@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jobs</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style type="text/css">
+	body{
+		background: #eee;
+	}
+	.b1{
+		padding: 10px;
+	}
+</style>
+<body>
+	<center><h1>Jobs Boot({{data|length}})</h1></center>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 b1">
+			<a href="/scraping" class="btn btn-success">Scraping</a>
+			<a href="/del" class="btn btn-danger">Delete</a>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th>ID</th>
+			      <th scope="col">Logo</th>
+			      <th scope="col">Titre</th>
+			      <th scope="col">Date</th>
+			      <th scope="col">Local</th>
+			      <th scope="col">Site</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	{% for r in data %}
+			    <tr>
+			      <th>{{r[0]}}</th>
+			      <th scope="row"><img src="{{ r[1] }}" height="40" width="60"></th>
+			      <td>{{r[2]}}</td>
+			      <td>{{ r[4]}}</td>
+			      <td>{{r[5]}}</td>
+			      <td><a href="{{r[3]}}" class="btn btn-primary">Go</a></td>
+			    </tr>
+			    {% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>
